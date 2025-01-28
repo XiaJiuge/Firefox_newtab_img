@@ -1,0 +1,5 @@
+# 豆包-天工AI-通义千问
+
+{"url":"https://www.tiangong.cn/",
+"label":"天工AI",
+"customScreenshotURL":"https://raw.githubusercontent.com/XiaJiuge/img/main/png/天工AI.png"},
