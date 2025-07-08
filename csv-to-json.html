@@ -365,7 +365,7 @@
                 jsonCounter.textContent = `${jsonItems} 项`;
             }
 
-            // CSV 转 JSON 函数 (保持不变)
+            // CSV 转 JSON 函数
             function convertCsvToJson(csvString) {
                 const lines = csvString.split('\n').filter(line => line.trim() !== '');
                 if (lines.length < 2) throw new Error('CSV 数据不完整');
@@ -409,11 +409,19 @@
                     result.push(item);
                 }
 
-                return '[' + result.map(item =>
-                    `{"url":"${item.url}","label":"${item.label}"` +
-                    (item.customScreenshotURL ? `,"customScreenshotURL":"${item.customScreenshotURL}"` : '') +
-                    '}'
-                ).join(',\n') + ']';
+                // 格式化 JSON 输出
+                return '[' + result.map(item => {
+                    let jsonString = '{\n';
+                    jsonString += '  "url": "' + item.url + '",\n';
+                    jsonString += '  "label": "' + item.label + '",\n';
+                    if (item.customScreenshotURL) {
+                        jsonString += '  "customScreenshotURL": "' + item.customScreenshotURL + '"\n';
+                    } else {
+                        jsonString = jsonString.slice(0, -2) + '\n'; // Remove trailing comma if no customScreenshotURL
+                    }
+                    jsonString += '}';
+                    return jsonString;
+                }).join(',\n') + ']';
             }
 
             // JSON 转 CSV 函数

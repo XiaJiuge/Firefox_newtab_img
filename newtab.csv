@@ -1,24 +1,24 @@
 ﻿url,label,customScreenshotURL
 https://chat.closechat.org/#/c/new,CloseChat,CloseChat.png
-https://trends.google.com/trends/,Google 趋势,Google趋势.webp
+https://trends.google.com/trends/,Google趋势,Google趋势.webp
 https://trendinsight.oceanengine.com/arithmetic-index,巨量算数,巨量算数.png
 https://chatgpt.com/,ChatGPT,ChatGPT.png
 https://gemini.google.com/app,Gemini,Gemini.png
 https://chat.deepseek.com/,DeepSeek,
-https://www.cnki.net/,中国知网,cnki.png
 https://newsnow-jiuge.pages.dev/,NewsNow,NewsNow.png
+http://www.bilibili.com/,哔哩哔哩,哔哩哔哩.png
 https://github.com/,GitHub,GitHub.png
 https://www.ncpssd.org/,国家哲学社会科学文献中心,国家哲学社会科学文献中心.png
 https://zq5.bookan.com.cn/?id=22833#/,博看书苑-浙江,博看书苑.png
 https://hellogithub.com/,HelloGitHub,HelloGitHub.png
-https://tongyi.aliyun.com/qianwen/,通义千问,
+https://tongyi.aliyun.com/,通义千问,
 https://metaso.cn/,秘塔AI搜索,
 https://kimi.moonshot.cn/,Kimi.ai,Kimi.ai.png
 https://github.com/copilot,GitHubCopilot,GitHubCopilot.png
 https://chat.qwen.ai/,Qwen,Qwen.png
 https://www.doubao.com/chat/,豆包,doubao.png
 https://www.sciencedirect.com/,ScienceDirect,ScienceDirect.png
-http://www.bilibili.com/,哔哩哔哩,哔哩哔哩.png
+https://www.cnki.net/,中国知网,cnki.png
 https://www.x-mol.com/,X-MOL.cn,X-MOL.png
 https://www.connectedpapers.com/,ConnectPaper,ConnectedPapers.png
 https://www.ivysci.com/journals/landing,研飞ivySCI,研飞ivySCI.png
@@ -31,7 +31,7 @@ https://cas.hfut.edu.cn/cas/login,统一身份认证,HFUTtysfrz.png
 https://jjxy.hfut.edu.cn/main.htm,经济学院,HFUTjjxy.png
 https://scholar.google.com/,Google学术,GoogleScholar.png
 https://webofscience.clarivate.cn/wos/alldb/basic-search,WebofScience,WebofScience.png
-https://www.xuexi.cn/,学习强国,学习强国.png
+https://www.xuexi.cn/index.html,学习强国,学习强国.png
 http://www.chinadaily.com.cn/,ChinaDaily,ChinaDaily.png
 https://simpletex.cn/ai/latex_ocr,SimpleTex,SimpleTex.png
 https://zh.z-lib.gd/,Z-Library,Z-Library.png
@@ -49,7 +49,7 @@ https://mail.qq.com/,QQ邮箱,QQ邮箱.png
 https://outlook.live.com/,Outlook,Outlook.png
 https://withpinbox.com/items,Pinbox,Pinbox.png
 https://tool.liumingye.cn/music/#/,MYFREEMP3,MYFREEMP3.webp
-https://calendar.google.com/calendar/u/0/r,Google 日历,Google 日历.png
+https://calendar.google.com/calendar/u/0/r,Google日历,Google日历.png
 https://fanyi.baidu.com,百度翻译,百度翻译.png
 https://fanyi.youdao.com/index.html#/TextTranslate,有道翻译,有道翻译.png
 https://www.deepl.com/zh/translator,DeepL翻译,DeepL翻译.png
@@ -66,7 +66,7 @@ https://www.lanzou.com/,蓝奏云,蓝奏云.png
 https://www.jianguoyun.com/#/,坚果云,坚果云.png
 https://pan.baidu.com/disk/home?stayAtHome=true#/all?path=%2F&vmode=list,百度网盘,百度网盘.png
 https://store.steampowered.com/,Steam,Steam.webp
-https://store.epicgames.com/zh-CN/,EpicGames,EpicGames.webp
+https://store.epicgames.com/,EpicGames,EpicGames.webp
 https://x.com/home,Twitter,
 https://www.pixiv.net/novel/discovery?mode=r18,Pixiv,
 https://www.qidian.com/,起点中文网,起点中文网.png
