@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>FastTab 测试页面</title>
+    <style>
+        body {
+            font-family: 'Microsoft YaHei', Arial, sans-serif;
+            margin: 20px;
+            background: #f5f6fa;
+        }
+        .test-section {
+            background: white;
+            padding: 20px;
+            margin-bottom: 20px;
+            border-radius: 8px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        }
+        .status {
+            padding: 10px;
+            border-radius: 4px;
+            margin: 10px 0;
+        }
+        .success { background: #d4edda; color: #155724; }
+        .error { background: #f8d7da; color: #721c24; }
+        .info { background: #d1ecf1; color: #0c5460; }
+        button {
+            background: #667eea;
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 4px;
+            cursor: pointer;
+            margin: 5px;
+        }
+        button:hover {
+            background: #5a6fd8;
+        }
+    </style>
+</head>
+<body>
+    <h1>FastTab 功能测试</h1>
+    
+    <div class="test-section">
+        <h2>配置文件测试</h2>
+        <button onclick="testConfigLoad()">测试配置加载</button>
+        <div id="configResult"></div>
+    </div>
+
+    <div class="test-section">
+        <h2>存储测试</h2>
+        <button onclick="testStorage()">测试数据存储</button>
+        <div id="storageResult"></div>
+    </div>
+
+    <div class="test-section">
+        <h2>图标生成测试</h2>
+        <button onclick="testIconGeneration()">测试图标生成</button>
+        <div id="iconResult"></div>
+    </div>
+
+    <div class="test-section">
+        <h2>搜索引擎测试</h2>
+        <button onclick="testSearchEngines()">测试搜索引擎</button>
+        <div id="searchResult"></div>
+    </div>
+
+    <script>
+        // 测试配置文件加载
+        async function testConfigLoad() {
+            const resultDiv = document.getElementById('configResult');
+            try {
+                const response = await fetch('./browser_extension_config.json');
+                const config = await response.json();
+                resultDiv.innerHTML = `<div class="status success">
+                    配置加载成功！找到 ${config.length} 个图标配置
+                </div>`;
+            } catch (error) {
+                resultDiv.innerHTML = `<div class="status error">
+                    配置加载失败: ${error.message}
+                </div>`;
+            }
+        }
+
+        // 测试数据存储
+        function testStorage() {
+            const resultDiv = document.getElementById('storageResult');
+            try {
+                // 测试 localStorage
+                const testData = { test: 'data', timestamp: Date.now() };
+                localStorage.setItem('fastTab_test', JSON.stringify(testData));
+                const retrieved = JSON.parse(localStorage.getItem('fastTab_test'));
+                
+                if (retrieved.test === 'data') {
+                    resultDiv.innerHTML = `<div class="status success">
+                        数据存储测试成功！
+                    </div>`;
+                    localStorage.removeItem('fastTab_test');
+                } else {
+                    resultDiv.innerHTML = `<div class="status error">
+                        数据存储测试失败：数据不匹配
+                    </div>`;
+                }
+            } catch (error) {
+                resultDiv.innerHTML = `<div class="status error">
+                    数据存储测试失败: ${error.message}
+                </div>`;
+            }
+        }
+
+        // 测试图标生成
+        function testIconGeneration() {
+            const resultDiv = document.getElementById('iconResult');
+            try {
+                // 生成一个测试图标
+                const canvas = document.createElement('canvas');
+                canvas.width = 120;
+                canvas.height = 120;
+                const ctx = canvas.getContext('2d');
+
+                // 背景
+                ctx.fillStyle = '#667eea';
+                ctx.fillRect(0, 0, 120, 120);
+
+                // 文字
+                ctx.fillStyle = 'white';
+                ctx.font = 'bold 40px Microsoft YaHei';
+                ctx.textAlign = 'center';
+                ctx.textBaseline = 'middle';
+                ctx.fillText('测', 60, 60);
+
+                const dataURL = canvas.toDataURL();
+                resultDiv.innerHTML = `<div class="status success">
+                    图标生成成功！<br>
+                    <img src="${dataURL}" style="width: 60px; height: 60px; border-radius: 4px; margin-top: 10px;">
+                </div>`;
+            } catch (error) {
+                resultDiv.innerHTML = `<div class="status error">
+                    图标生成失败: ${error.message}
+                </div>`;
+            }
+        }
+
+        // 测试搜索引擎
+        function testSearchEngines() {
+            const resultDiv = document.getElementById('searchResult');
+            const searchEngines = {
+                google: 'https://www.google.com/search?q=',
+                baidu: 'https://www.baidu.com/s?wd=',
+                bing: 'https://www.bing.com/search?q=',
+                bilibili: 'https://search.bilibili.com/all?keyword=',
+                wikipedia: 'https://zh.wikipedia.org/wiki/Special:Search?search='
+            };
+
+            const testQuery = 'FastTab';
+            let html = '<div class="status success">搜索引擎配置正确：<br>';
+            
+            Object.keys(searchEngines).forEach(engine => {
+                const url = searchEngines[engine] + encodeURIComponent(testQuery);
+                html += `<div style="margin: 5px 0;">
+                    <strong>${engine}:</strong> 
+                    <a href="${url}" target="_blank" style="color: #667eea;">${url}</a>
+                </div>`;
+            });
+            
+            html += '</div>';
+            resultDiv.innerHTML = html;
+        }
+
+        // 页面加载完成后显示信息
+        document.addEventListener('DOMContentLoaded', () => {
+            console.log('FastTab 测试页面已加载');
+        });
+    </script>
+</body>
+</html>

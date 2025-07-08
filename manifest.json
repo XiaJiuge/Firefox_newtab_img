@@ -1,0 +1,39 @@
+{
+  "manifest_version": 2,
+  "name": "FastTab",
+  "version": "1.0.0",
+  "description": "自定义新标签页，支持个性化图标和搜索引擎",
+
+  "permissions": [
+    "storage",
+    "activeTab"
+  ],
+
+  "chrome_url_overrides": {
+    "newtab": "newtab.html"
+  },
+
+  "background": {
+    "scripts": ["background.js"],
+    "persistent": false
+  },
+
+  "options_ui": {
+    "page": "options.html",
+    "open_in_tab": true
+  },
+
+  "icons": {
+    "16": "icons/icon-16.svg",
+    "32": "icons/icon-32.svg",
+    "48": "icons/icon-48.svg",
+    "128": "icons/icon-128.svg"
+  },
+
+  "web_accessible_resources": [
+    "newtab.html",
+    "newtab.css",
+    "newtab.js",
+    "browser_extension_config.json"
+  ]
+}
